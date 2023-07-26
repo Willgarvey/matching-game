@@ -1,0 +1,295 @@
+html {
+  background-image: linear-gradient(to bottom, black, rgb(20, 20, 20));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hide any content outside the body */
+  margin: 0; /* Remove default margin to prevent unwanted scrollbars */
+}
+
+
+.menu {
+  position: absolute;
+  padding-top:10em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(201, 201, 201, 0.8), lightslategrey);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-transform: uppercase;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.end {
+  position: absolute;
+  padding-top:10em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(201, 201, 201, 0.8), lightslategrey);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-transform: uppercase;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+/* Button styles */
+.button {
+  margin: 10px;
+  padding-bottom: 5px;
+  max-height: 1.5em;
+  background-color: #9e9e9e;
+  color: white;
+  font-size: 20px;
+  border: 2px black solid;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  text-transform: uppercase;
+  background-image: linear-gradient(to bottom, black, lightslategrey);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Hover state */
+.button:hover {
+  background-color: #7d7d7d;
+}
+
+/* Active/Pressed state */
+.button:active {
+  transform: scale(0.95);
+}
+
+.currentPlayer {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.back {
+  transform: rotateY(180deg);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 1px solid #333333;
+  transition: transform 0.5s;
+}
+
+.card {
+  position: relative;
+  border: none;
+  width: 100px;
+  height: 100px;
+  /* box-shadow: 0 0 0 1px #333333; */
+  /* border: 1px solid #333333; */
+  cursor: pointer;
+  line-height: 100px;
+  font-size: 60px;
+  margin: 10px;
+  font-size: 100px;
+  perspective: 1000px;
+}
+  /* here we're creating a custom dataType "data-card-type" - CSS can NOT use camelCase, so we need to use dashes
+  to separate the words.  But we access this property in JS with the "dataset" property.  So in our JS file,
+  we're calling to this section with: dataset.cardType 
+  This line of code in JS: cards[i].dataset.cardType = cardTypes[i]; assigns each of the cards a cardType
+  from the shuffled cards, and the cardType is defined here in CSS.  Each index is assigned a color on the
+  back of the card. */
+
+  .card[data-card-type="0"] .back {
+    background-image: url("img/1.png");
+  }
+  
+  .card[data-card-type="1"] .back {
+    background-image: url("img/2.png");
+  }
+  
+  .card[data-card-type="2"] .back {
+    background-image: url("img/3.png");
+  }
+  
+  .card[data-card-type="3"] .back {
+    background-image: url("img/4.png");
+  }
+  
+  .card[data-card-type="4"] .back {
+    background-image: url("img/5.png");
+  }
+  
+  .card[data-card-type="5"] .back {
+    background-image: url("img/6.png");
+  }
+  
+  .card[data-card-type="6"] .back {
+    background-image: url("img/7.png");
+  }
+  
+  .card[data-card-type="7"] .back {
+    background-image: url("img/8.png");
+  }
+  
+  .card[data-card-type="8"] .back {
+    background-image: url("img/9.png");
+  }
+  
+  .card[data-card-type="9"] .back {
+    background-image: url("img/10.png");
+  }
+
+  .card.flipped .front {
+    transform: rotateY(180deg);
+  }
+  
+  .card.flipped .back {
+    transform: rotateY(0);
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+    opacity: 0; 
+    transition: opacity 0.3s; 
+    pointer-events: none; 
+  }
+  
+  .card.flipped::before {
+    opacity: 1;
+  }
+
+.choice {
+  font-family: sans-serif;
+  font-size: 25px;
+  color: purple;
+}
+
+.flex {
+  flex: 1;
+  align-items: center;
+  vertical-align: center;
+}
+
+.front {
+  background-image: linear-gradient(to bottom ,black, rgb(53, 56, 61));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.game-container {
+  margin-top: 10em;
+  padding: .5em;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  width: 500px;
+  background-image: linear-gradient(to bottom, rgba(201,201,201,0.8), rgba(119,136,153,0.9));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.matched {
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.5), inset 0 0 50px rgba(0, 0, 0, 0.2);
+  animation-name: fadeInBoxShadow;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeInBoxShadow {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: 5px 10px;
+  }
+}
+
+#playerOneScore,
+#playerTwoScore {
+  font-size: 2em;;
+  text-align: center;
+}
+
+.scoreboard {
+  position: absolute;
+  display:none;
+  top: 20px; /* Adjust the top value as needed to position it where you want */
+  height: 80px;
+  width:20em;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-image: linear-gradient(to bottom, rgba(201, 201, 201, 0.2), rgba(118, 135, 152, 0.2));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-transform: uppercase;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2; 
+}
+
+.scoreboardPlayerOne,
+.scoreboardPlayerTwo {
+  flex: 1;
+  flex-direction: row;
+  margin: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+section {
+  text-align: center;
+}
+
+
+
+.revealScoreboard{
+  display:flex;
+  top: 20px; /* Adjust the top value as needed to position it where you want */
+  height: 80px;
+  width:20em;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-image: linear-gradient(to bottom, rgba(201, 201, 201, 0.8), lightslategrey);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-transform: uppercase;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 3; 
+}
+
+.restart {
+  align-self: auto;
+}
