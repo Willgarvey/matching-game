@@ -244,6 +244,8 @@ function startGame(gameMode) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  await new Promise(resolve => setTimeout(resolve, 500)); // Wait for 1 second
+  assignCards();
   flipCardsWithDelay();
 });
 
