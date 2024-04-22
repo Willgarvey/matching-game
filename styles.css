@@ -111,43 +111,43 @@ body {
   back of the card. */
 
   .card[data-card-type="0"] .back {
-    background-image: url("1.png");
+    background-image: url("img/1.png");
   }
   
   .card[data-card-type="1"] .back {
-    background-image: url("2.png");
+    background-image: url("img/2.png");
   }
   
   .card[data-card-type="2"] .back {
-    background-image: url("3.png");
+    background-image: url("img/3.png");
   }
   
   .card[data-card-type="3"] .back {
-    background-image: url("4.png");
+    background-image: url("img/4.png");
   }
   
   .card[data-card-type="4"] .back {
-    background-image: url("5.png");
+    background-image: url("img/5.png");
   }
   
   .card[data-card-type="5"] .back {
-    background-image: url("6.png");
+    background-image: url("img/6.png");
   }
   
   .card[data-card-type="6"] .back {
-    background-image: url("7.png");
+    background-image: url("img/7.png");
   }
   
   .card[data-card-type="7"] .back {
-    background-image: url("8.png");
+    background-image: url("img/8.png");
   }
   
   .card[data-card-type="8"] .back {
-    background-image: url("9.png");
+    background-image: url("img/9.png");
   }
   
   .card[data-card-type="9"] .back {
-    background-image: url("10.png");
+    background-image: url("img/10.png");
   }
 
   .card.flipped .front {

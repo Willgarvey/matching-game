@@ -243,10 +243,5 @@ function startGame(gameMode) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  assignCards();
-  flipCardsWithDelay();
-});
-
 
 
