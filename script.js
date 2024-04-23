@@ -36,6 +36,9 @@ let end = document.querySelector(".end");
 let result = document.querySelector(".result");
 let restartGame = document.querySelector(".mainMenu");
 
+// Flip the cards for show after the cards are assigned
+flipCardsWithDelay();
+
 // event listeners to select either Single Player or Two Players
 singlePlayerMode.addEventListener("click", () => {
   startGame(gameMode = "single player");
@@ -141,6 +144,7 @@ function assignCards() {
     cards[i].dataset.cardType = cardTypes[i]; // assigns a cardType from the shuffled cardTypes
   } // In CSS we have defined that cards with the data-card-type of [0]-[9] are assigned a specified color.   
 }
+
 // Main game loop that sets game type and card event listeners to handle the game logic
 function startGame(gameMode) {
   // built-in functions 

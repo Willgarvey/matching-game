@@ -1,3 +1,5 @@
+"use strict";
+
 // Colors are shuffled and the pairs of colors are assigned to each of the cards
 // User can click Single Player or Two Player
 // Choosing a game type assigns some variables and sets some elements
@@ -29,11 +31,6 @@ let scoreboardPlayerTwo = document.querySelector(".scoreboardPlayerTwo");
 let singlePlayerMode = document.querySelector(".singlePlayer");
 let twoPlayerMode = document.querySelector(".twoPlayer");
 let resetButton = document.querySelector(".restart");
-
-// hide elements by default this can be moved into your html
-// playersTurn.classList.add("hidden");
-// scoreboardPlayerOne.classList.add("hidden");
-// scoreboardPlayerTwo.classList.add("hidden");
 
 singlePlayerMode.addEventListener("click", () => {
   //TODO: You can make gameMode an parameter for the startGame method to clarify gameMode is required
@@ -69,7 +66,7 @@ function startGame() {
     scoreboardPlayerOne.classList.remove("hidden");
     scoreboardPlayerTwo.classList.remove("hidden");
   }
-  //TODO: You can change this to a function if you want?
+
   function restart() {
     resetButton.classList.add("hidden");
     showHeader();
@@ -81,16 +78,12 @@ function startGame() {
     matchedPairs = 0;
     playerOneScore = 0;
     playerTwoScore = 0;
-    document.getElementById("playerOneScore").textContent = playerOneScore; // TODO: This can be simplified
-    document.getElementById("playerTwoScore").textContent = playerTwoScore; // TODO: This can be simplified
-    cards.forEach((card) => { // this is a loop that goes through each card. forEach card, it removes
-      // card.removeEventListener("click", gameLogic);
-      // TODO: No need to remove card types here. Looks more realistic card.dataset.cardType = ""; // the cardType data attribute (sets it to an empty string)
-      card.classList.remove("matched"); // and removes the "matched" class. This effectively resets
-      card.classList.remove("flipped"); // the state of each card "erasing" what type of card it is and whether it's been matched or not.
-    }); // finally, card.classList.remove("flipped") removes the "flipped" status of the cards, so when the 
-    // Restart Game button is pressed, the cards shuffle and get flipped to their front side (black side)
-    // TODO: Do not need to shuffle here assignCards(); // finally, calls assignCards function which assigns new card types to each card in a shuffled order
+    document.getElementById("playerOneScore").textContent = playerOneScore;
+    document.getElementById("playerTwoScore").textContent = playerTwoScore;
+    cards.forEach((card) => {
+      card.classList.remove("matched");
+      card.classList.remove("flipped");
+    });
     clickable = false;
     firstCard = null;
     secondCard = null; // TODO: Semicolon missing here
